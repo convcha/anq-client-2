@@ -3,6 +3,7 @@ import JssProvider from 'react-jss/lib/JssProvider';
 import { withStyles, MuiThemeProvider } from 'material-ui/styles';
 import { wrapDisplayName } from 'recompose';
 import createContext from '../styles/createContext';
+import AppFrame from './AppFrame';
 
 // Apply some reset
 const decorate = withStyles(theme => ({
@@ -37,7 +38,9 @@ function withRoot(BaseComponent: React.ComponentType) {
         <JssProvider registry={context.sheetsRegistry} jss={context.jss}>
           <MuiThemeProvider theme={context.theme} sheetsManager={context.sheetsManager}>
             <AppWrapper>
-              <BaseComponent />
+              <AppFrame>
+                <BaseComponent/>
+              </AppFrame>
             </AppWrapper>
           </MuiThemeProvider>
         </JssProvider>
