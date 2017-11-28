@@ -9,6 +9,7 @@ import Dialog, {
 import Typography from 'material-ui/Typography';
 import withStyles, { WithStyles } from 'material-ui/styles/withStyles';
 import withRoot from '../components/withRoot';
+import { log } from 'util';
 
 const styles = {
   root: {
@@ -16,12 +17,14 @@ const styles = {
     paddingTop: 200,
   },
 };
+type ClassNames = keyof typeof styles;
+log(typeof styles);
 
 type State = {
   open: boolean,
 };
 
-class Index extends React.Component<WithStyles<keyof typeof styles>, State> {
+class Index extends React.Component<WithStyles<ClassNames>, State> {
   state = {
     open: false,
   };

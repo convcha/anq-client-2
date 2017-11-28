@@ -4,6 +4,7 @@ import { withStyles, MuiThemeProvider } from 'material-ui/styles';
 import { wrapDisplayName } from 'recompose';
 import createContext from '../styles/createContext';
 import AppFrame from './AppFrame';
+import AppContent from './AppContent';
 
 // Apply some reset
 const decorate = withStyles(theme => ({
@@ -39,7 +40,9 @@ function withRoot(BaseComponent: React.ComponentType) {
           <MuiThemeProvider theme={context.theme} sheetsManager={context.sheetsManager}>
             <AppWrapper>
               <AppFrame>
-                <BaseComponent/>
+                <AppContent>
+                  <BaseComponent/>
+                </AppContent>
               </AppFrame>
             </AppWrapper>
           </MuiThemeProvider>
